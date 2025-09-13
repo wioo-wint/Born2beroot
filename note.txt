@@ -1,0 +1,108 @@
+Choose the Ext4 file system, it is the most commonly used file system in Linux distributions.
+
+----------------------------
+For System
+----------------------------
+su 	- change to root
+
+lsblk - check partition
+
+sudo apt install (name)
+
+sudo apt update - update the system
+
+sudo reboot - reboot the system
+
+sudo aa-status | grep apparmor -- check apparmor
+
+
+-----------------------------
+User and Group
+-----------------------------
+sudo adduser <name> - create user
+
+sudo addgroup <name> - create group
+
+getent group <gpnames> - check created groups
+
+sudo adduser <uname> <gpname> - add user to the group
+
+sudo hostnamectl set-hostname <hostname>    - modify hostname 
+hostnamectl status
+
+
+cat /etc/passwd | cut -d ":" -f 1 - displays all users on the machine.
+
+-----------------------------
+SSH and Firewall (Security)
+-----------------------------
+sudo service ssh status  - check SSH service
+
+nano /etc/ssh/sshd_config and /ssh_config  - edit SSH configuration
+
+sudo service ssh restart - restart after config
+
+ssh <user>@localhost -p 4241 - connect via SSH from real machine
+
+ufw (Uncomplicated Firewall) - sudo ufw enable
+
+sudo ufw allow <port num> - to make firewall accept the port connection
+	 deny
+
+sudo ufw status numbered 
+sudo ufw delete <index number> - to check the ports with index and remove
+
+sudo ufw status - to check firewall
+
+
+-----------------------------
+sudo Policies
+-----------------------------
+nano /etc/sudoers.d/sudo_config (or) sudo visudo   - to set or check the sudo policies
+
+
+-----------------------------
+Password Policies
+-----------------------------
+nano /etc/login.defs   - to set or check password policies
+
+nano /etc/pam.d/common-password    - to check password config
+     /etc/security/pwquality.conf
+
+sudo passwd <user/root>    - change password
+
+
+--------------------------------------
+Background processing for Broadcast
+--------------------------------------
+sudo crontab -u root -e        - configure crontab
+
+
+-----------
+Bonus
+-----------
+http://127.0.0.1:8080/
+
+sudo systemctl start <name>
+sudo systemctl enable <name>
+sudo systemctl status <name>
+
+to check extra bonus
+----------------------
+nano /etc/fail2ban/jail.local    - to config setting for fail2ban
+
+sudo fail2ban-client status
+sudo fail2ban-client status sshd
+sudo tail -f /var/log/fail2ban.log
+
+sudo fail2ban-client set sshd unbanip <ip address>   -  unban
+
+
+
+
+
+
+
+
+
+
